@@ -4,8 +4,6 @@ use Doctrine\ORM\EntityRepository as DoctrineEntityRepository;
 
 abstract class EntityRepository extends DoctrineEntityRepository {
 
-	protected $queryableFields = array();
-
 	/**
 	 * Save an entity into the database.
 	 * @param Entity $object
@@ -16,6 +14,14 @@ abstract class EntityRepository extends DoctrineEntityRepository {
 		$em = $this->getEntityManager();
 		$em->persist($object);
 		$em->flush();
+	}
+
+	public function add($object) {
+		$this->getEntityManager()->persist($object);
+	}
+
+	public function saveAll() {
+		$this->getEntityManager()->flush();
 	}
 
 	/**
