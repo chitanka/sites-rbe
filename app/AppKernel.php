@@ -44,7 +44,7 @@ class AppKernel extends Kernel {
 
 	/** {@inheritdoc} */
 	public function getCacheDir() {
-		return realpath(__DIR__.'/../var/cache/'.$this->environment);
+		return __DIR__.'/../var/cache/'.$this->environment;
 	}
 
 	/** {@inheritdoc} */
