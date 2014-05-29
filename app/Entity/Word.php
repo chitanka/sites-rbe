@@ -3,11 +3,14 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="App\Entity\WordRepository")
-* @ORM\Table(
-*	indexes={
-*		@ORM\Index(columns={"name"})})
-*/
+ * @ORM\Entity(repositoryClass="App\Entity\WordRepository")
+ * @ORM\Table(
+ *     indexes={
+ *         @ORM\Index(columns={"name"}),
+ *         @ORM\Index(columns={"first_letter"})
+ *     }
+ * )
+ */
 class Word {
 	/**
 	 * @ORM\Column(type="integer")
