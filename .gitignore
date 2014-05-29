@@ -1,0 +1,10 @@
+/app/config/parameters.yml
+/app/bootstrap.php.cache
+/bin/
+/var/*/*
+/vendor/
+/web/bundles/
+*.min.js
+*.swp
+!.gitignore
+!.gitkeep
