@@ -1,0 +1,17 @@
+{% extends 'App::layout.html.twig' %}
+
+{% block content %}
+
+	<h2>
+		{{ words|length }} думи, започващи с „{{ letter }}“
+	</h2>
+
+	<ul>
+	{% for word in words %}
+		<li>
+			<a href="{{ path('home', {'q': word.name}) }}">{{ word.nameWithStress|replace({'`': '&#768;'})|raw }}</a>
+		</li>
+	{% endfor %}
+	</ul>
+
+{% endblock %}

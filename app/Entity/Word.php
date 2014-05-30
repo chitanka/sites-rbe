@@ -49,6 +49,12 @@ class Word {
 	 */
 	private $sourceDefinition;
 
+	/**
+	 * @var string
+	 * @ORM\Column(type="string", length=100, nullable=true)
+	 */
+	private $workroomPage;
+
 	public function getId() { return $this->id; }
 
 	public function getName() { return $this->name; }
@@ -73,5 +79,8 @@ class Word {
 
 	public function getSourceDefinition() { return $this->sourceDefinition; }
 	public function setSourceDefinition($sourceDefinition) { $this->sourceDefinition = $sourceDefinition; }
+
+	public function getWorkroomPage() { return $this->workroomPage; }
+	public function setWorkroomPage($workroomPage) { $this->workroomPage = $workroomPage; }
 
 }

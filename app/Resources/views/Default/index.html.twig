@@ -1,0 +1,50 @@
+{% extends 'App::layout.html.twig' %}
+
+{% block content %}
+
+	<form role="form" class="main-search-form" method="get" action="{{ path('home') }}">
+		<div class="form-group">
+			<label class="sr-only" for="q">Дума</label>
+			<div class="input-group">
+				<input value="{{ searchTerm }}" tabindex="1" class="form-control input-lg" name="q" id="q">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-default btn-lg"><span class="fa fa-search"></span><span class="sr-only">Търсене</span></button>
+				</span>
+			</div>
+		</div>
+	</form>
+
+	{% if searchTerm is not empty and words|length == 0 %}
+		<div class="alert alert-warning">Търената дума не присъства в речника.</div>
+	{% endif %}
+
+	{% for index, word in words %}
+		<div class="panel panel-default" id="word-{{ index }}">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a href="#word-{{ index }}"><span class="fa fa-link text-muted"></span></a>
+					{{ word.nameWithStress|replace({'`': '&#768;'})|raw }}
+				</h3>
+			</div>
+			<div class="panel-body">
+				{{ word.definition|replace({'`': '&#768;', '­': ''})|raw }}
+
+				<div class="text-center">
+					<div class="btn-group">
+						<a class="btn btn-default btn-sm" href="http://ibl.bas.bg/rbe/?q={{ word.name }}" title="„{{ word.name }}“ в РБЕ на Института за български език на БАН">РБЕ — ИБЕ</a>
+						<a class="btn btn-default btn-sm" href="http://rechnik.chitanka.info/w/{{ word.name }}" title="„{{ word.name }}“ в Речко">Речко</a>
+						{% if word.workroomPage is not empty %}
+							<a class="btn btn-default btn-sm" href="http://wiki.workroom.chitanka.info/{{ word.workroomPage }}" title="„{{ word.name }}“ в Читалие">Читалие</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+	<div class="well">
+		<span class="fa fa-info-circle"></span>
+		Това е подобрен вариант на <a href="http://ibl.bas.bg/rbe/">официалната версия на Речника на българския език</a>.
+	</div>
+
+{% endblock %}

@@ -4,6 +4,7 @@
 	<link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap-theme.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('bundles/app/css/main.css') }}">
 {% endblock %}
 
 {% block javascripts %}
@@ -14,6 +15,9 @@
 {% block body %}
 
 	<div class="container" role="main">
+		<div class="page-header">
+			<h1>Речник на българския език 2.0</h1>
+		</div>
 		{% block content '' %}
 	</div><!-- /.container -->
 {% endblock %}
