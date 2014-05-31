@@ -8,7 +8,7 @@ abstract class Controller extends SymfonyController {
 
 	/** @return \App\Entity\EntityManager */
 	public function em() {
-		return $this->em ?: $this->em = $this->container->get('app.entity_manager');
+		return $this->em ?: $this->em = $this->container->get('entity_manager');
 	}
 
 }

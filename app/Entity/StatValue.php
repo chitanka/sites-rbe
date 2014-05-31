@@ -24,15 +24,20 @@ class StatValue {
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="text")
+	 * @ORM\Column(type="array")
 	 */
 	private $value;
 
+	public function __construct($name, $value = null) {
+		$this->name = $name;
+		$this->value = $value;
+	}
+
 	public function getId() { return $this->id; }
 
-	public function setName($name) { $this->name = $name; }
 	public function getName() { return $this->name; }
+	public function setName($name) { $this->name = $name; }
 
-	public function setValue($value) { $this->value = $value; }
 	public function getValue() { return $this->value; }
+	public function setValue($value) { $this->value = $value; }
 }

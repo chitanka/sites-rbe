@@ -24,7 +24,7 @@ class ImportRbeHtmlCommand extends ContainerAwareCommand {
 			throw new \InvalidArgumentException("File '$htmlInput' does not exist.");
 		}
 		ini_set('memory_limit', '1G');
-		$importer = new RbeImporter($this->getContainer()->get('app.word.repository'));
+		$importer = new RbeImporter($this->getContainer()->get('repository.word'));
 		$importer->importWordsFromHtml(file_get_contents($htmlInput));
 	}
 

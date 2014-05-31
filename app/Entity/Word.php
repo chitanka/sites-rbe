@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * )
  */
 class Word {
+
 	/**
 	 * @ORM\Column(type="integer")
 	 * @ORM\Id

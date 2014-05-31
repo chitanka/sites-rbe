@@ -43,4 +43,12 @@ abstract class EntityRepository extends DoctrineEntityRepository {
 		return $this->getEntityManager()->getConnection()->executeUpdate($query, $params, $types);
 	}
 
+	/**
+	 * Execute and SQL SELECT query and fetch all rows
+	 * @param string $query  The SQL query.
+	 * @return array
+	 */
+	public function executeAndFetch($query) {
+		return $this->getEntityManager()->getConnection()->fetchAll($query);
+	}
 }

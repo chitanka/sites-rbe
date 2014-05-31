@@ -4,13 +4,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
 	<services>
-		<service id="app.entity_manager" class="App\Entity\EntityManager">
+		<service id="entity_manager" class="App\Entity\EntityManager">
 			<argument type="service" id="doctrine.orm.entity_manager" />
 		</service>
 
-		<service id="app.word.repository" class="App\Entity\WordRepository"
+		<service id="repository.word" class="App\Entity\WordRepository"
 			factory-service="doctrine.orm.entity_manager" factory-method="getRepository">
 			<argument>App:Word</argument>
+		</service>
+		<service id="repository.stat_value" class="App\Entity\StatValueRepository"
+			factory-service="doctrine.orm.entity_manager" factory-method="getRepository">
+			<argument>App:StatValue</argument>
 		</service>
 	</services>
 </container>

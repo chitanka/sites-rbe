@@ -24,6 +24,8 @@ class EntityManager {
 
 	/** @return WordRepository */
 	public function getWordRepository() { return $this->getRepository('Word'); }
+	/** @return StatValueRepository */
+	public function getStatValueRepository() { return $this->getRepository('StatValue'); }
 
 	/**
 	 * A proxy to Doctrine EntityManager methods

@@ -13,6 +13,7 @@ class DefaultController extends Controller {
 		return $this->render('App:Default:index.html.twig', array(
 			'words' => $this->em()->getWordRepository()->findByName($searchTerm),
 			'searchTerm' => $searchTerm,
+			'letterCounts' => $this->em()->getStatValueRepository()->getLetterCounts(),
 		));
 	}
 

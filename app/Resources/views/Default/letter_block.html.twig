@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Списък на думите по буква
+		</h3>
+	</div>
+	<div class="panel-body">
+		<div class="text-center">
+			<div class="btn-group">
+				{% for letter, count in letterCounts %}
+					<a class="btn btn-default btn-sm" href="{{ path('letter', {'letter': letter}) }}" title="{{ count }} думи, започващи с „{{ letter }}“">{{ letter }}</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
