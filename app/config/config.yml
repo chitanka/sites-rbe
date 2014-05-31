@@ -24,6 +24,12 @@ framework:
     fragments:       ~
     http_method_override: true
 
+sensio_framework_extra:
+    router:  { annotations: true }
+    request: { converters: true }
+    #view:    { annotations: true }
+    cache:   { annotations: true }
+
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"

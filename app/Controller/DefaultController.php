@@ -1,12 +1,14 @@
 <?php namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller {
 
 	/**
 	 * @Route("/", name="home")
+	 * @Cache(expires="+1 day", public=true)
 	 */
 	public function indexAction(Request $request) {
 		$searchTerm = $request->query->get('q');
@@ -19,6 +21,7 @@ class DefaultController extends Controller {
 
 	/**
 	 * @Route("/letter/{letter}", name="letter")
+	 * @Cache(expires="+1 day", public=true)
 	 */
 	public function letterAction($letter) {
 		return $this->render('App:Default:letter.html.twig', array(
