@@ -3,12 +3,12 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="App\Entity\ParameterRepository")
+* @ORM\Entity(repositoryClass="App\Entity\StatValueRepository")
 * @ORM\Table(
 *	indexes={
 *		@ORM\Index(columns={"name"})})
 */
-class Parameter {
+class StatValue {
 	/**
 	 * @ORM\Column(type="integer")
 	 * @ORM\Id
