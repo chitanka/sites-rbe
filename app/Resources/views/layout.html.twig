@@ -15,9 +15,13 @@
 {% block body %}
 
 	<div class="container" role="main">
-		<div class="page-header">
-			<h1>Речник на българския език 2.0</h1>
-		</div>
+		<header class="page-header">
+			<h1>{{ block('title') }}</h1>
+		</header>
 		{% block content '' %}
 	</div><!-- /.container -->
+
+	<footer id="footer">
+		{% block footer %}{% endblock %}
+	</footer>
 {% endblock %}

@@ -7,7 +7,7 @@ class EntityManager {
 	private $em;
 
 	public function __construct(DoctrineEntityManager $em) {
-		$this->em = $this->configureEntityManager($em);
+		$this->em = $em;
 	}
 
 	/**

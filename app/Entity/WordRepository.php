@@ -6,6 +6,9 @@
 class WordRepository extends EntityRepository {
 
 	public function findByName($name) {
+		if (empty($name)) {
+			return array();
+		}
 		return $this->findBy(array('name' => $name));
 	}
 

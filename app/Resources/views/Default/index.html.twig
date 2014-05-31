@@ -6,7 +6,7 @@
 		<div class="form-group">
 			<label class="sr-only" for="q">Дума</label>
 			<div class="input-group">
-				<input value="{{ searchTerm }}" tabindex="1" class="form-control input-lg" name="q" id="q">
+				<input type="search" placeholder="дума…" value="{{ searchTerm }}" tabindex="1" class="form-control input-lg" name="q" id="q" {% if searchTerm is empty %}autofocus{% endif %}>
 				<span class="input-group-btn">
 					<button type="submit" class="btn btn-default btn-lg"><span class="fa fa-search"></span><span class="sr-only">Търсене</span></button>
 				</span>
