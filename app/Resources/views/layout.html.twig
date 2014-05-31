@@ -22,6 +22,8 @@
 	</div><!-- /.container -->
 
 	<footer id="footer">
-		{% block footer %}{% endblock %}
+		{% block footer %}
+			{% include 'App::footer.html.twig' %}
+		{% endblock %}
 	</footer>
 {% endblock %}
