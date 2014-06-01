@@ -48,7 +48,17 @@ abstract class EntityRepository extends DoctrineEntityRepository {
 	 * @param string $query  The SQL query.
 	 * @return array
 	 */
-	public function executeAndFetch($query) {
+	public function fetchAll($query) {
 		return $this->getEntityManager()->getConnection()->fetchAll($query);
 	}
+
+	/**
+	 * Execute and SQL SELECT query and fetch all rows as (key => value) pairs
+	 * @param string $query  The SQL query.
+	 * @return array
+	 */
+	public function fetchAllKeyValue($query) {
+		return $this->getEntityManager()->getConnection()->executeQuery($query)->fetchAll(\PDO::FETCH_KEY_PAIR);
+	}
+
 }

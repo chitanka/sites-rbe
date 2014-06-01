@@ -12,10 +12,7 @@ class StatValueRepository extends EntityRepository {
 			FROM word
 			GROUP BY first_letter
 			ORDER BY first_letter';
-		$letterCounts = array();
-		foreach ($this->executeAndFetch($sql) as $row) {
-			$letterCounts[$row['letter']] = $row['count'];
-		}
+		$letterCounts = $this->fetchAllKeyValue($sql);
 		$this->update(self::NAME_LETTER_COUNTS, $letterCounts);
 	}
 
