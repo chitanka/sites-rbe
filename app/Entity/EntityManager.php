@@ -7,7 +7,7 @@ class EntityManager {
 	private $em;
 
 	public function __construct(DoctrineEntityManager $em) {
-		$this->em = $em;
+		$this->em = $this->configureEntityManager($em);
 	}
 
 	/**
@@ -35,6 +35,12 @@ class EntityManager {
 	 */
 	public function __call($name, $arguments) {
 		return call_user_func_array(array($this->em, $name), $arguments);
+	}
+
+	private function configureEntityManager(DoctrineEntityManager $em) {
+		$em->getConfiguration()->addCustomHydrationMode('id', 'App\Hydration\IdHydrator');
+		$em->getConfiguration()->addCustomHydrationMode('key_value', 'App\Hydration\KeyValueHydrator');
+		return $em;
 	}
 
 }
