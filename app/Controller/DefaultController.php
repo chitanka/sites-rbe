@@ -21,7 +21,7 @@ class DefaultController extends Controller {
 			'searchTerm' => $searchTerm,
 			'letterCounts' => $this->em()->getStatValueRepository()->getLetterCounts(),
 		));
-		if (empty($words)) {
+		if (!empty($searchTerm) && empty($words)) {
 			$response->setStatusCode(Response::HTTP_NOT_FOUND);
 		}
 		return $response;
