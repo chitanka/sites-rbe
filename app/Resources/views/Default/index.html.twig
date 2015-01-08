@@ -1,5 +1,9 @@
 {% extends 'App::layout.html.twig' %}
 
+{% if searchTerm is not empty %}
+	{% block title %}{{ searchTerm }} — {{ parent() }}{% endblock %}
+{% endif %}
+
 {% block content %}
 
 	<form role="form" class="main-search-form" method="get" action="{{ path('home') }}">
@@ -15,7 +19,7 @@
 	</form>
 
 	{% if searchTerm is not empty and words|length == 0 %}
-		<div class="alert alert-warning">Търената дума не присъства в речника.</div>
+		<div class="alert alert-warning">Търсената дума не присъства в речника.</div>
 	{% endif %}
 
 	{% for index, word in words %}
